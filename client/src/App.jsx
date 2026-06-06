@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 import './App.css';
 
-const API_BASE = 'http://localhost:5001/api';
+const API_BASE = 'https://expense-tracker-server.onrender.com/api';
 
 const CATEGORIES = ['Food', 'Transport', 'Bills', 'Entertainment', 'Other'];
 
