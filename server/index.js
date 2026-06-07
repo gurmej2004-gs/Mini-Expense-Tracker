@@ -5,7 +5,12 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://expense-tracker-frontend-xxxx.onrender.com'
+  ]
+}));
 app.use(express.json());
 
 let expenses = [];
