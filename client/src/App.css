@@ -17,24 +17,27 @@ body, #root {
 }
 
 /* Header */
-header, .header {
-  background: #2B2B2B;
-  color: #F5F0E8 !important;
+.header {
+  background-color: #2B2B2B !important;
+  padding: 2.5rem 2rem;
   text-align: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  border-radius: 4px;
+  margin-bottom: 2rem;
 }
 
 .header h1 {
-  font-size: 32px;
+  font-family: Cambria, serif !important;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
   color: #F5F0E8 !important;
-  margin-bottom: 8px;
+  margin: 0 0 0.5rem 0 !important;
+  letter-spacing: 0.02em;
 }
 
 .header p {
-  font-size: 16px;
-  color: #F5F0E8 !important;
+  font-family: Cambria, serif !important;
+  font-size: 1rem !important;
+  color: #C8C0B0 !important;
+  margin: 0 !important;
 }
 
 /* Cards / Panels */
