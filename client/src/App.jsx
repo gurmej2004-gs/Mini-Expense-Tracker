@@ -25,6 +25,7 @@ function App() {
     amount: '',
     category: 'Food',
     date: new Date().toISOString().split('T')[0],
+    time: new Date().toLocaleTimeString('en-IN', { hour12: false, hour: '2-digit', minute: '2-digit' }),
     note: ''
   });
   const [formErrors, setFormErrors] = useState({});
@@ -124,6 +125,7 @@ function App() {
         amount: parseFloat(formData.amount),
         category: formData.category,
         date: formData.date,
+        time: formData.time,
         note: formData.note
       };
 
@@ -151,6 +153,7 @@ function App() {
         amount: '',
         category: 'Food',
         date: new Date().toISOString().split('T')[0],
+        time: new Date().toLocaleTimeString('en-IN', { hour12: false, hour: '2-digit', minute: '2-digit' }),
         note: ''
       });
       setEditingExpense(null);
@@ -170,6 +173,7 @@ function App() {
       amount: expense.amount,
       category: expense.category,
       date: expense.date,
+      time: expense.time || new Date().toLocaleTimeString('en-IN', { hour12: false, hour: '2-digit', minute: '2-digit' }),
       note: expense.note
     });
   };
@@ -203,9 +207,10 @@ function App() {
   };
 
   const exportCSV = () => {
-    const headers = ['Date', 'Category', 'Amount', 'Note'];
+    const headers = ['Date', 'Time (IST)', 'Category', 'Amount', 'Note'];
     const rows = expenses.map(exp => [
       exp.date,
+      exp.time || '-',
       exp.category,
       exp.amount.toFixed(2),
       exp.note
@@ -335,6 +340,15 @@ function App() {
           </div>
 
           <div className="form-group">
+            <label>Time (IST) *</label>
+            <input
+              type="time"
+              value={formData.time}
+              onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+            />
+          </div>
+
+          <div className="form-group">
             <label>Note (Optional)</label>
             <textarea
               value={formData.note}
@@ -354,6 +368,7 @@ function App() {
                 amount: '',
                 category: 'Food',
                 date: new Date().toISOString().split('T')[0],
+                time: new Date().toLocaleTimeString('en-IN', { hour12: false, hour: '2-digit', minute: '2-digit' }),
                 note: ''
               });
               setFormErrors({});
@@ -427,6 +442,7 @@ function App() {
             <thead>
               <tr>
                 <th>Date</th>
+                <th>Time (IST)</th>
                 <th>Category</th>
                 <th>Amount</th>
                 <th>Note</th>
@@ -437,6 +453,7 @@ function App() {
               {expenses.map(expense => (
                 <tr key={expense.id}>
                   <td>{expense.date}</td>
+                  <td>{expense.time || '-'}</td>
                   <td>{expense.category}</td>
                   <td>{formatCurrency(expense.amount)}</td>
                   <td>{expense.note || '-'}</td>

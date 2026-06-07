@@ -83,6 +83,7 @@ app.post('/api/expenses', (req, res) => {
     amount: req.body.amount,
     category: req.body.category,
     date: req.body.date || new Date().toISOString().split('T')[0],
+    time: req.body.time || new Date().toLocaleTimeString('en-IN', { hour12: false, hour: '2-digit', minute: '2-digit' }),
     note: req.body.note || ''
   };
   expenses.push(newExpense);
@@ -94,7 +95,11 @@ app.put('/api/expenses/:id', (req, res) => {
   if (index === -1) return res.status(404).json({ error: 'Expense not found' });
   const errors = validateExpense(req.body, true);
   if (errors.length > 0) return res.status(400).json({ error: errors.join(', ') });
-  expenses[index] = { ...expenses[index], ...req.body };
+  const updatedExpense = { ...expenses[index], ...req.body };
+  if (req.body.time) {
+    updatedExpense.time = req.body.time;
+  }
+  expenses[index] = updatedExpense;
   res.json(expenses[index]);
 });
 
