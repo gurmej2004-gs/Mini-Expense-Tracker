@@ -243,7 +243,7 @@ function App() {
       )}
 
       <header style={{
-        backgroundColor: '#2B2B2B',
+        backgroundColor: '#4A5568',
         padding: '2.5rem 2rem',
         textAlign: 'center',
         marginBottom: '2rem'
@@ -252,14 +252,13 @@ function App() {
           fontFamily: 'Cambria, serif',
           fontSize: '2.5rem',
           fontWeight: '700',
-          color: '#000000',
-          margin: '0 0 0.5rem 0',
-          letterSpacing: '0.02em'
+          color: '#F7FAFC',
+          margin: '0 0 0.5rem 0'
         }}>Expense Tracker</h1>
         <p style={{
           fontFamily: 'Cambria, serif',
           fontSize: '1rem',
-          color: '#C8C0B0',
+          color: '#A0AEC0',
           margin: '0'
         }}>Track your spending efficiently</p>
       </header>
