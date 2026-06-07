@@ -19,7 +19,7 @@ body, #root {
 /* Header */
 header, .header {
   background: #2B2B2B;
-  color: #F5F0E8;
+  color: #F5F0E8 !important;
   text-align: center;
   margin-bottom: 30px;
   padding: 20px;
@@ -28,13 +28,13 @@ header, .header {
 
 .header h1 {
   font-size: 32px;
-  color: #F5F0E8;
+  color: #F5F0E8 !important;
   margin-bottom: 8px;
 }
 
 .header p {
   font-size: 16px;
-  color: #C8C0B0;
+  color: #F5F0E8 !important;
 }
 
 /* Cards / Panels */
